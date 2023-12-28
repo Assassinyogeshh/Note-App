@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function Notes() {
   const { id } = useParams();
-  const [notes, setNotes] = useState([]);
-  const [storeId, setStoreId] = useState();
+  const [notes, setNotes] = useState([]); 
+  // const [storeId, setStoreId] = useState();
   const [selectedMonth, setSelectedMonth] = useState(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function Notes() {
 
         const fetchedUserNotes = response.data.data.userNotes;
         const userNoteId = response.data.data._id;
-        setStoreId(userNoteId);
+       // setStoreId(userNoteId);
         setNotes(fetchedUserNotes);
       } catch (error) {
         console.log(error);
@@ -177,7 +177,7 @@ function Notes() {
           </div>
           <div className="add_user_notes">
             <Link
-              to={`/Notes/addNotes/${storeId}`}
+              to={`/Notes/addNotes/${id}`}
               className="remove_link_style"
             >
               <button className="add_notes_btn">+</button>
@@ -187,7 +187,7 @@ function Notes() {
       ) : (
         <div className="check_month_notes">
           Add Your Notes
-          <Link to={`/Notes/addNotes/${storeId}`} className="remove_link_style">
+          <Link to={`/Notes/addNotes/${id}`} className="remove_link_style">
             <p>Start Adding</p>
           </Link>
         </div>
