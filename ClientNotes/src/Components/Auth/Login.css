@@ -1,0 +1,118 @@
+.auth_user {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f1f2f3;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 1px;
+    padding-top: 5%;
+}
+
+.stack_logo_img {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loginBox {
+    border: 1px solid;
+    height: 25rem;
+    width: 35rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    margin-left: 29%;
+    margin-top: 2%;
+    background-color: white;
+}
+
+.Login_Page {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 20rem;
+    height: 100%;
+    justify-content: center;
+}
+
+.checkBox {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkBox input {
+    cursor: pointer;
+}
+
+.checkBox p {
+    cursor: pointer;
+}
+
+#email {
+    width: 100%;
+    height: 1.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+}
+
+#password {
+    width: 100%;
+    height: 1.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+}
+
+.submitBtn {
+    background-color: #009dff;
+    border: 1px solid #009dff;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 10px;
+    padding: 10px 5px;
+    transition: .2s;
+}
+
+
+.signUp_page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+}
+
+@media screen and (max-width:414px) {
+
+
+    .loginBox {
+        margin-left: 4%;
+        height: 22rem;
+        margin-right: 3%;
+        font-size: 14px;
+        font-weight: 400;
+        width: 24rem;
+    }
+
+    .Login_Page {
+        width: 15rem;
+    }
+
+    .checkBox {
+        width: 100%;
+    }
+
+}
