@@ -6,14 +6,17 @@ import { Link } from "react-router-dom";
 
 function Notes() {
   const { id } = useParams();
-  const [notes, setNotes] = useState([]); 
-  // const [storeId, setStoreId] = useState();
+  const [notes, setNotes] = useState([]);
+  const [storeId, setStoreId] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
 
   useEffect(() => {
+
+   
+
     const fetchNotes = async () => {
       try {
-        const apiUrl = "http://localhost:3000";
+        const apiUrl = "https://user-note-app.onrender.com";
         const token = await JSON.parse(localStorage.getItem("userToken"));
 
         if (!token) {
@@ -34,7 +37,7 @@ function Notes() {
 
         const fetchedUserNotes = response.data.data.userNotes;
         const userNoteId = response.data.data._id;
-       // setStoreId(userNoteId);
+        setStoreId(userNoteId);
         setNotes(fetchedUserNotes);
       } catch (error) {
         console.log(error);
@@ -46,7 +49,7 @@ function Notes() {
 
   const handleDelete = async (noteId) => {
     try {
-      const apiUrl = "http://localhost:3000";
+      const apiUrl = "https://user-note-app.onrender.com";
       const token = JSON.parse(localStorage.getItem("userToken"));
       const config = {
         headers: {
@@ -177,7 +180,7 @@ function Notes() {
           </div>
           <div className="add_user_notes">
             <Link
-              to={`/Notes/addNotes/${id}`}
+              to={`/Notes/addNotes/${storeId}`}
               className="remove_link_style"
             >
               <button className="add_notes_btn">+</button>
@@ -185,12 +188,13 @@ function Notes() {
           </div>
         </div>
       ) : (
-        <div className="check_month_notes">
-          Add Your Notes
-          <Link to={`/Notes/addNotes/${id}`} className="remove_link_style">
-            <p>Start Adding</p>
-          </Link>
-        </div>
+          <div className="check_month_notes">
+            Add Your Notes
+            <Link to={`/Notes/addNotes/${storeId||id}`} className="remove_link_style">
+              <p>Start Adding</p>
+            </Link>
+          </div>
+        
       )}
     </>
   );
