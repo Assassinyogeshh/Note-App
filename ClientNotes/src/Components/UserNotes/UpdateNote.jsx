@@ -4,7 +4,6 @@ import { useFormik } from "formik";
 import axios from "axios";
 const UpdateNote = () => {
   const { id } = useParams();
-  console.log("i am update id", id);
   const navigate = useNavigate();
   const initialValues = {
     title: "",
@@ -15,11 +14,12 @@ const UpdateNote = () => {
     initialValues,
     onSubmit: async (values, Action) => {
       try {
-        const apiUrl = "http://localhost:3000";
-        const logInId = JSON.parse(localStorage.getItem("UserProfile"));
-        const userID = logInId?.data?._id;
+        const apiUrl = "https://user-note-app.onrender.com";
 
-        console.log(userID);
+        const userProfileData =JSON.parse(localStorage.getItem("userProfile"));
+ 
+    const userID = userProfileData?.data?._id;
+    console.log("yo Iam id:",userID);
         const token = JSON.parse(localStorage.getItem("userToken"));
 
         const config = {
